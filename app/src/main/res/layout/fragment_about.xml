@@ -63,7 +63,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="© 2019 Ninja2005"
+                        android:text="© 2019 yadiq"
                         android:textColor="@color/gray1"
                         android:textSize="14dp" />
                 </LinearLayout>
@@ -198,7 +198,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Ninja2005"
+                        android:text="yadiq"
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
@@ -266,7 +266,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ninja20050@163.com"
+                        android:text="yadig@qq.com"
                         android:textColor="@color/gray1"
                         android:textSize="14dp" />
                 </LinearLayout>

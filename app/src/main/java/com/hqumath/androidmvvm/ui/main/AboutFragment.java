@@ -33,10 +33,10 @@ public class AboutFragment extends BaseFragment {
     @Override
     protected void initListener() {
         binding.llSourcecode.setOnClickListener(v -> {
-            startActivity(ReposDetailActivity.getStartIntent(mContext, "androidmvvm", "ninja2005"));
+            startActivity(ReposDetailActivity.getStartIntent(mContext, "androidmvvm", "yadiq"));
         });
         binding.llProfile.setOnClickListener(v -> {
-            startActivity(ProfileDetailActivity.getStartIntent(mContext, "ninja2005"));
+            startActivity(ProfileDetailActivity.getStartIntent(mContext, "yadiq"));
         });
     }
 
