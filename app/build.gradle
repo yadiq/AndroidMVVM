@@ -1,11 +1,16 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    compileSdkVersion 30
+    namespace 'com.hqumath.androidmvvm' //影响R类生成
+    compileSdk 31
+
     defaultConfig {
-        applicationId "com.hqumath.androidmvvm"
-        minSdkVersion 21
-        targetSdkVersion 30
+        applicationId "com.hqumath.androidmvvm" //影响AndroidManifest中package
+        minSdk 21
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 31
         versionCode 20211020
         versionName "2.0"
     }

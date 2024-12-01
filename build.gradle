@@ -1,25 +1,24 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
     repositories {
         //阿里云云效 Maven https://developer.aliyun.com/mvn/guide
-        maven { url 'https://maven.aliyun.com/repository/public' }//central仓和jcenter仓的聚合仓
-        maven { url 'https://maven.aliyun.com/repository/google' }//google
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }//gradle-plugin
+        maven { url 'https://maven.aliyun.com/repository/public' }//central仓和jcenter仓的聚合仓 源地址 https://repo1.maven.org/maven2/ http://jcenter.bintray.com/
+        maven { url 'https://maven.aliyun.com/repository/google' }//google 源地址 https://maven.google.com/
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }//gradle-plugin 源地址 https://plugins.gradle.org/m2/
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath("com.android.tools.build:gradle:7.3.1")
     }
 }
 
 allprojects {
     repositories {
         //阿里云云效 Maven https://developer.aliyun.com/mvn/guide
-        maven { url 'https://maven.aliyun.com/repository/public' }//central仓和jcenter仓的聚合仓
-        maven { url 'https://maven.aliyun.com/repository/google' }//google
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }//gradle-plugin
+        maven { url 'https://maven.aliyun.com/repository/public' }//central仓和jcenter仓的聚合仓 源地址 https://repo1.maven.org/maven2/ http://jcenter.bintray.com/
+        maven { url 'https://maven.aliyun.com/repository/google' }//google 源地址 https://maven.google.com/
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }//gradle-plugin 源地址 https://plugins.gradle.org/m2/
+        maven { url 'https://jitpack.io' }
         google()
         mavenCentral()
     }
