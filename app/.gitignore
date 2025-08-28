@@ -1,4 +1,2 @@
-/build
-/*.apk
-/*.iml
+# /build
 /release

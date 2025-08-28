@@ -1,10 +1,12 @@
-/.idea
+# .gitignore 语法
+# 以”#”号开头表示注释；
+# 以斜杠“/”开头表示当前目录下，以斜杠“/”开头通配所有目录下文件夹
+# 以星号“*”通配多个字符；
+# 以问号“?”通配单个字符
+# 以方括号“[]”包含单个字符的匹配列表；
+# 以叹号“!”表示不忽略(跟踪)匹配到的文件或目录；
+
 /.gradle
-/build
-/captures
+/.idea
 /local.properties
-/*.iml
-/*.rar
-/.DS_Store
-/*.apk
-/.externalNativeBuild
+build/
