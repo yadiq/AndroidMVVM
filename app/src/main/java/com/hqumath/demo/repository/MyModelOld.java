@@ -1,7 +1,7 @@
 package com.hqumath.demo.repository;
 
 import com.hqumath.demo.app.Constant;
-import com.hqumath.demo.base.BaseModel;
+import com.hqumath.demo.base.BaseModelOld;
 import com.hqumath.demo.net.CreateRequestBodyUtil;
 import com.hqumath.demo.net.HttpListener;
 import com.hqumath.demo.net.RetrofitClient;
@@ -24,7 +24,7 @@ import okhttp3.MultipartBody;
  * 3.方便自动化测试
  * ****************************************************************
  */
-public class MyModel extends BaseModel {
+public class MyModelOld extends BaseModelOld {
     //模拟登陆接口
     public void login(String userName, String passWord, HttpListener listener) {
         sendRequest(RetrofitClient.getInstance().getApiService().getUserInfo(userName), new HttpListener() {

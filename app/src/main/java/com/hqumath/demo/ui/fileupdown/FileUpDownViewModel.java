@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.hqumath.demo.base.BaseViewModel;
 import com.hqumath.demo.net.HttpListener;
 import com.hqumath.demo.net.download.DownloadListener;
-import com.hqumath.demo.repository.MyModel;
+import com.hqumath.demo.repository.MyModelOld;
 import com.hqumath.demo.utils.FileUtil;
 
 import java.io.File;
@@ -27,13 +27,13 @@ public class FileUpDownViewModel extends BaseViewModel {
     public Object uploadResultData;
 
     public FileUpDownViewModel() {
-        mModel = new MyModel();
+        mModel = new MyModelOld();
     }
 
     public void download(String url) {
         isDownloading.setValue(true);
         File file = FileUtil.getFileFromUrl(url);
-        ((MyModel) mModel).download(url, file, new DownloadListener() {
+        ((MyModelOld) mModel).download(url, file, new DownloadListener() {
             @Override
             public void onSuccess(Object object) {
                 isDownloading.postValue(false);
@@ -58,7 +58,7 @@ public class FileUpDownViewModel extends BaseViewModel {
 
     public void upload(String key, File file) {
         isLoading.setValue(true);
-        ((MyModel) mModel).upload(key, file, new HttpListener() {
+        ((MyModelOld) mModel).upload(key, file, new HttpListener() {
             @Override
             public void onSuccess(Object object) {
                 isLoading.postValue(false);

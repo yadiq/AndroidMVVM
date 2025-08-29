@@ -6,7 +6,7 @@ import com.hqumath.demo.app.Constant;
 import com.hqumath.demo.base.BaseViewModel;
 import com.hqumath.demo.bean.UserInfoEntity;
 import com.hqumath.demo.net.HttpListener;
-import com.hqumath.demo.repository.MyModel;
+import com.hqumath.demo.repository.MyModelOld;
 import com.hqumath.demo.utils.SPUtil;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class FollowersViewModelOld extends BaseViewModel {
 
 
     public FollowersViewModelOld() {
-        mModel = new MyModel();
+        mModel = new MyModelOld();
     }
 
     /**
@@ -48,7 +48,7 @@ public class FollowersViewModelOld extends BaseViewModel {
             pageIndex = 1;
         }
         String userName = SPUtil.getInstance().getString(Constant.USER_NAME);
-        ((MyModel) mModel).getFollowers(userName, pageSize, pageIndex, new HttpListener() {
+        ((MyModelOld) mModel).getFollowers(userName, pageSize, pageIndex, new HttpListener() {
             @Override
             public void onSuccess(Object object) {
                 List<UserInfoEntity> list = (List<UserInfoEntity>) object;

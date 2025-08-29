@@ -6,6 +6,7 @@
         <variable
             name="viewModel"
             type="com.hqumath.demo.ui.login.LoginViewModel" />
+        <import type="android.view.View" />
     </data>
 
     <RelativeLayout
@@ -14,56 +15,118 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:paddingTop="100dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ll_name"
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:adjustViewBounds="true"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/user_name">
+                android:layout_marginTop="10dp"
+                android:text="用户登录"
+                android:textColor="@color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_name"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="30dp"
+                app:cardBackgroundColor="#E6E6E6"
+                app:cardCornerRadius="23dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionNext"
-                    android:inputType="textPersonName"
-                    android:maxLines="1"
-                    android:text="@={viewModel.userName}" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ll_pwd"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_phone" />
+
+                    <EditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="请输入账号"
+                        android:text="@={viewModel.userName}"
+                        android:textColor="@color/black"
+                        android:textColorHint="#999999"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:hint="@string/password"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTint="?colorAccent">
+                android:layout_height="46dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="30dp"
+                app:cardBackgroundColor="#E6E6E6"
+                app:cardCornerRadius="23dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_pwd"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionGo"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:text="@={viewModel.password}" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="6dp">
 
-            <Button
-                android:id="@+id/btn_login"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_pwd" />
+
+                    <EditText
+                        android:id="@+id/etPwd"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="请输入密码"
+                        android:text="@={viewModel.password}"
+                        android:textColor="@color/black"
+                        android:textColorHint="#999999"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/bg_button_login"
-                android:text="@string/login"
+                android:layout_height="56dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="62dp"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:text="登录"
                 android:textColor="@color/white"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                app:backgroundTint="@color/theme_color"
+                app:cornerRadius="28dp" />
+
         </LinearLayout>
 
     </RelativeLayout>

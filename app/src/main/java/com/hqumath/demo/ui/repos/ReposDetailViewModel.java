@@ -6,8 +6,7 @@ import com.hqumath.demo.base.BaseViewModel;
 import com.hqumath.demo.bean.CommitEntity;
 import com.hqumath.demo.bean.ReposEntity;
 import com.hqumath.demo.net.HttpListener;
-import com.hqumath.demo.repository.MyModel;
-import com.hqumath.demo.utils.CommonUtil;
+import com.hqumath.demo.repository.MyModelOld;
 import com.hqumath.demo.utils.StringUtil;
 
 import java.text.ParseException;
@@ -39,11 +38,11 @@ public class ReposDetailViewModel extends BaseViewModel {
     public List<CommitEntity> commitData = new ArrayList<>();//列表数据
 
     public ReposDetailViewModel() {
-        mModel = new MyModel();
+        mModel = new MyModelOld();
     }
 
     public void getReposInfo() {
-        ((MyModel) mModel).getReposInfo(userName, reposName, new HttpListener() {
+        ((MyModelOld) mModel).getReposInfo(userName, reposName, new HttpListener() {
             @Override
             public void onSuccess(Object object) {
                 ReposEntity data = (ReposEntity) object;
@@ -85,7 +84,7 @@ public class ReposDetailViewModel extends BaseViewModel {
         if (isRefresh) {
             commitPageIndex = 1;
         }
-        ((MyModel) mModel).getCommits(userName, reposName, pageSize, commitPageIndex, new HttpListener() {
+        ((MyModelOld) mModel).getCommits(userName, reposName, pageSize, commitPageIndex, new HttpListener() {
             @Override
             public void onSuccess(Object object) {
                 List<CommitEntity> list = (List<CommitEntity>) object;

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.hqumath.demo.base.BaseViewModel;
 import com.hqumath.demo.bean.UserInfoEntity;
 import com.hqumath.demo.net.HttpListener;
-import com.hqumath.demo.repository.MyModel;
+import com.hqumath.demo.repository.MyModelOld;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,14 +36,14 @@ public class ProfileDetailViewModel extends BaseViewModel {
     public MutableLiveData<String> blog = new MutableLiveData<>();
 
     public ProfileDetailViewModel() {
-        mModel = new MyModel();
+        mModel = new MyModelOld();
     }
 
     /**
      * 获取用户信息
      */
     public void getUserInfo() {
-        ((MyModel) mModel).getUserInfo(userName, new HttpListener() {
+        ((MyModelOld) mModel).getUserInfo(userName, new HttpListener() {
             @Override
             public void onSuccess(Object object) {
                 UserInfoEntity data = (UserInfoEntity) object;

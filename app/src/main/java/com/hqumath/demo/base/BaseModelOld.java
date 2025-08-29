@@ -26,7 +26,7 @@ import okhttp3.ResponseBody;
  * 版权声明:
  * ****************************************************************
  */
-public class BaseModel {
+public class BaseModelOld {
     protected CompositeDisposable compositeDisposable = new CompositeDisposable();//管理订阅事件，用于主动取消网络请求
 
     //网络请求

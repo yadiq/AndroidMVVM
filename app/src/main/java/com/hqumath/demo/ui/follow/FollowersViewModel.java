@@ -8,7 +8,7 @@ import com.hqumath.demo.base.BaseViewModel;
 import com.hqumath.demo.bean.UserInfoEntity;
 import com.hqumath.demo.net.HttpListener;
 import com.hqumath.demo.repository.AppDatabase;
-import com.hqumath.demo.repository.MyModel;
+import com.hqumath.demo.repository.MyModelOld;
 import com.hqumath.demo.utils.SPUtil;
 
 import java.util.List;
@@ -35,7 +35,7 @@ public class FollowersViewModel extends BaseViewModel {
     public LiveData<List<UserInfoEntity>> mData;//列表数据
 
     public FollowersViewModel() {
-        mModel = new MyModel();
+        mModel = new MyModelOld();
         mData = AppDatabase.getInstance().userInfoDao().loadAll();//UserInfoDao_Impl 内部做了线程切换
     }
 
@@ -55,7 +55,7 @@ public class FollowersViewModel extends BaseViewModel {
             pageIndex = 1;
         }
         String userName = SPUtil.getInstance().getString(Constant.USER_NAME);
-        ((MyModel) mModel).getFollowers(userName, pageSize, pageIndex, new HttpListener() {
+        ((MyModelOld) mModel).getFollowers(userName, pageSize, pageIndex, new HttpListener() {
             @Override
             public void onSuccess(Object object) {
                 List<UserInfoEntity> list = (List<UserInfoEntity>) object;
