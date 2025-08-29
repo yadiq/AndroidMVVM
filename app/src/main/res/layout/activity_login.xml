@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.hqumath.androidmvvm.ui.login.LoginViewModel" />
+            type="com.hqumath.demo.ui.login.LoginViewModel" />
     </data>
 
     <RelativeLayout

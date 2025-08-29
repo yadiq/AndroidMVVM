@@ -1,94 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/dialog_common_bg"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/dialog_top_ll"
-        android:layout_width="match_parent"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp">
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="12dp">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="提示"
-            android:textColor="#2A303C"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:visibility="visible" />
-
-        <TextView
-            android:id="@+id/message"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginBottom="14dp"
-            android:gravity="center"
-            android:lineSpacingExtra="2dp"
-            android:textColor="#999999"
-            android:textSize="14dp"
-            android:visibility="visible"
-            tools:text="文本内容" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#EAECEE" />
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="提示"
+                    android:textColor="#2A303C"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
 
-    <Button
-        android:id="@+id/oneYes"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:text="确认"
-        android:textColor="@color/theme_color"
-        android:textSize="16dp"
-        android:visibility="gone" />
+                <TextView
+                    android:id="@+id/tvMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="2dp"
+                    android:textColor="#999999"
+                    android:textSize="14dp"
+                    android:visibility="visible"
+                    tools:text="文本内容" />
 
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/llTwo"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOneYes"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:text="确认"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:visibility="gone"
+                app:backgroundTint="@color/theme_color"
+                app:cornerRadius="24dp" />
 
-        <Button
-            android:id="@+id/no"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@null"
-            android:text="取消"
-            android:textColor="#999999"
-            android:textSize="16dp" />
+            <LinearLayout
+                android:id="@+id/llTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#EAECEE" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNo"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:text="取消"
+                    android:textColor="#999999"
+                    android:textSize="16dp"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="24dp"
+                    app:strokeColor="#999999"
+                    app:strokeWidth="1px" />
 
-        <Button
-            android:id="@+id/yes"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@null"
-            android:text="确认"
-            android:textColor="@color/theme_color"
-            android:textSize="16dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnYes"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:text="确认"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    app:backgroundTint="@color/theme_color"
+                    app:cornerRadius="24dp" />
 
-    </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

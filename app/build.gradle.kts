@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.hqumath.androidmvvm" //影响R类生成
+    namespace = "com.hqumath.demo" //影响R类生成
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.hqumath.androidmvvm" //影响AndroidManifest中package
+        applicationId = "com.hqumath.demo" //影响AndroidManifest中package
         minSdk = 21
         targetSdk = 33
         versionCode = 100001
@@ -89,10 +89,22 @@ dependencies {
     implementation("com.yanzhenjie:permission:2.0.3")
     //屏幕适配
     implementation("com.github.JessYanCoding:AndroidAutoSize:v1.2.1")
+    //live-event-bus
+    implementation("io.github.jeremyliao:live-event-bus-x:1.8.0")
+    //app升级
+    implementation("com.github.jenly1314.AppUpdater:app-updater:1.2.0")
+    //异常捕获
+    implementation ("com.iqiyi.xcrash:xcrash-android-lib:3.1.0")
     ////////////////UI组件相关////////////////
+    //二维码
+    implementation("com.github.jenly1314:zxing-lite:3.0.1")
     //下拉刷新
     implementation("io.github.scwang90:refresh-layout-kernel:3.0.0-alpha") //核心必须依赖
     implementation("io.github.scwang90:refresh-header-classics:3.0.0-alpha") //经典刷新头
+    //侧滑菜单
+    implementation("com.yanzhenjie.recyclerview:x:1.3.2")
+    //日期控件
+    implementation("com.contrarywind:Android-PickerView:4.1.9")
     //picture
     implementation("com.github.bumptech.glide:glide:4.12.0")
 }

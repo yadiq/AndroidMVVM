@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.hqumath.androidmvvm.ui.follow.ProfileDetailViewModel" />
+            type="com.hqumath.demo.ui.follow.ProfileDetailViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

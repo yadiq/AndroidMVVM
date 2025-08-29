@@ -1,30 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!--声明各个目录的用处，用于FileProvider-->
-
-    <!--代表设备的根目录new File("/");-->
-    <root-path
-        name="root"
-        path="" />
-    <!--代表context.getFilesDir()-->
-    <files-path
-        name="files"
-        path="" />
-    <!--代表context.getCacheDir()-->
-    <cache-path
-        name="cache"
-        path="" />
-    <!--代表Environment.getExternalStorageDirectory()-->
-    <external-path
-        name="external"
-        path="" />
-    <!--代表context.getExternalFilesDirs()-->
+<paths>
+    <!--应用专属外部存储空间文件 /storage/emulated/0/Android/data/packname/files-->
     <external-files-path
-        name="external-files"
-        path="" />
-    <!--代表getExternalCacheDirs()-->
-    <external-cache-path
-        name="external-cache"
-        path="" />
+        name="my_images"
+        path="images/" />
+    <external-files-path
+        name="my_docs"
+        path="docs/" />
 
-</resources>
+</paths>

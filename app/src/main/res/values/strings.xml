@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MVVMDemo</string>
+    <string name="app_name">GithubDemo</string>
 
     <!--登录界面-->
     <string name="user_name">用户名</string>

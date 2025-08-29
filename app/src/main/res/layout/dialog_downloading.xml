@@ -7,7 +7,7 @@
     app:cardCornerRadius="16dp"
     app:cardElevation="0dp">
 
-    <com.hqumath.androidmvvm.widget.DownloadingProgressBar
+    <com.hqumath.demo.widget.DownloadingProgressBar
         android:id="@+id/pb_downloading_content"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="wrap_content"
