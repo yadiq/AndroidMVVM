@@ -15,7 +15,7 @@ import java.util.HashMap;
  * ****************************************************************
  */
 public class Constant {
-    public static String baseUrl = "https://api.github.com/"; //API服务器
+    public static String BASE_API = "https://api.github.com/"; //API服务器
     public static String downloadHost = "http://cps.yingyonghui.com/"; //下载线路
 
     //请求通用参数

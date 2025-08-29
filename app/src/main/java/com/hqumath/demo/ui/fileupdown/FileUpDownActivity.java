@@ -5,7 +5,7 @@ import android.view.View;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import com.hqumath.demo.base.BaseActivity;
+import com.hqumath.demo.base.BaseActivityOld;
 import com.hqumath.demo.databinding.ActivityFileupdownBinding;
 import com.hqumath.demo.utils.CommonUtil;
 import com.hqumath.demo.utils.FileUtil;
@@ -13,7 +13,7 @@ import com.hqumath.demo.widget.DownloadingDialog;
 
 import java.io.File;
 
-public class FileUpDownActivity extends BaseActivity {
+public class FileUpDownActivity extends BaseActivityOld {
     public final static String url = "http://cps.yingyonghui.com/cps/yyh/channel/ac.union.m2/com.yingyonghui.market_1_30063293.apk";
 
     private ActivityFileupdownBinding binding;

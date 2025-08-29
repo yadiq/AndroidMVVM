@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
  * 版权声明:
  * ****************************************************************
  */
-public abstract class BaseActivity extends AppCompatActivity {
-    protected BaseActivity mContext;
+public abstract class BaseActivityOld extends AppCompatActivity {
+    protected BaseActivityOld mContext;
     private ProgressDialog mProgressDialog;
 
     @Override

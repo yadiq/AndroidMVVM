@@ -34,7 +34,7 @@ public class HandlerException {
         if (e instanceof HttpException) {
             HttpException httpException = (HttpException) e;
             ex = new ResponseThrowable(e, ERROR.HTTP_ERROR + "");
-            LogUtil.d("HTTP", "错误号：" + httpException.code());
+            LogUtil.e("OkHttp", "错误号：" + httpException.code(), false);
             switch (httpException.code()) {
                 case UNAUTHORIZED:
                 case FORBIDDEN:
@@ -45,7 +45,7 @@ public class HandlerException {
                 case SERVICE_UNAVAILABLE:
                 case GATEWAY_TIMEOUT:
                 default:
-                    ex.setMessage("网络错误");
+                    ex.setMessage("网络错误(" + httpException.code() + ")");
                     break;
             }
             return ex;

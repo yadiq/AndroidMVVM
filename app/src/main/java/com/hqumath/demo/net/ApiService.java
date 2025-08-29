@@ -32,6 +32,14 @@ import retrofit2.http.Url;
  */
 public interface ApiService {
 
+    //@Headers("Content-Type: application/json")
+    //@POST("api/auth/loginApp")
+    //Observable<BaseResult<LoginBean>> login(@Body Map<String, String> body);
+
+    //获取设备列表
+    //@GET("api/device/list")
+    //Observable<BaseResult<DeviceListBean>> getDeviceList(@QueryMap Map<String, String> query);
+
     //获取用户信息
     @GET("users/{userName}")
     Observable<UserInfoEntity> getUserInfo(@Path("userName") String userName);

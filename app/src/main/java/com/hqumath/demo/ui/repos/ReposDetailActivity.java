@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.hqumath.demo.adapter.MyRecyclerAdapters;
-import com.hqumath.demo.base.BaseActivity;
+import com.hqumath.demo.base.BaseActivityOld;
 import com.hqumath.demo.databinding.ActivityReposDetailBinding;
 import com.hqumath.demo.utils.CommonUtil;
 
@@ -25,7 +25,7 @@ import com.hqumath.demo.utils.CommonUtil;
  * 注意事项:
  * ****************************************************************
  */
-public class ReposDetailActivity extends BaseActivity {
+public class ReposDetailActivity extends BaseActivityOld {
     private ActivityReposDetailBinding binding;
     private ReposDetailViewModel viewModel;
     private MyRecyclerAdapters.CommitsRecyclerAdapter recyclerAdapter;

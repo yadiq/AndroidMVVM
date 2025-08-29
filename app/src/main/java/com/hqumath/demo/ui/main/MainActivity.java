@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.viewpager.widget.ViewPager;
 
 import com.hqumath.demo.adapter.MyFragmentPagerAdapter;
-import com.hqumath.demo.base.BaseActivity;
+import com.hqumath.demo.base.BaseActivityOld;
 import com.hqumath.demo.base.BaseFragment;
 import com.hqumath.demo.databinding.ActivityMainBinding;
 import com.hqumath.demo.ui.follow.FollowersFragment;
@@ -15,7 +15,7 @@ import com.hqumath.demo.ui.repos.ReposFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivityOld {
 
     private ActivityMainBinding binding;
 

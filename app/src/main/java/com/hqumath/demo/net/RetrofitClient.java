@@ -3,10 +3,13 @@ package com.hqumath.demo.net;
 import com.hqumath.demo.app.Constant;
 import com.hqumath.demo.net.download.DownloadInterceptor;
 import com.hqumath.demo.net.download.DownloadListener;
+import com.hqumath.demo.utils.SSLSocketClient;
 
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.Protocol;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -24,9 +27,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class RetrofitClient {
     private volatile static RetrofitClient INSTANCE;
-    private final static int connectTimeout = 6;//s,连接超时
-    private final static int readTimeout = 6;//s,读取超时
-    private final static int writeTimeout = 6;//s,写超时
+    private final static int connectTimeout = 8;//s,连接超时
+    private final static int readTimeout = 8;//s,读取超时
+    private final static int writeTimeout = 8;//s,写超时
 
     private ApiService apiService;//api服务器
     private ApiService downloadService;//下载服务器
@@ -54,13 +57,16 @@ public class RetrofitClient {
             builder.connectTimeout(connectTimeout, TimeUnit.SECONDS);
             builder.readTimeout(readTimeout, TimeUnit.SECONDS);
             builder.writeTimeout(writeTimeout, TimeUnit.SECONDS);
-            builder.retryOnConnectionFailure(false);//出现错误时会重新发送请求
+            builder.protocols(Collections.singletonList(Protocol.HTTP_1_1));//有些后端不支持http/2
+            //builder.sslSocketFactory(SSLSocketClient.getSSLSocketFactory());//忽略证书
+            //builder.hostnameVerifier(SSLSocketClient.getHostnameVerifier());//忽略证书
             builder.addInterceptor(new LogInterceptor());//自定义拦截器（token过期后刷新token，打印日志）
             Retrofit retrofit = new Retrofit.Builder()
                     .client(builder.build())
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())//返回数据转换器-Gson
+                    //.addConverterFactory(ScalarsConverterFactory.create())//返回数据转换器-String
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .baseUrl(Constant.baseUrl)
+                    .baseUrl(Constant.BASE_API)
                     .build();
             apiService = retrofit.create(ApiService.class);
         }
@@ -69,22 +75,38 @@ public class RetrofitClient {
 
     //下载服务器
     public ApiService getDownloadService(DownloadListener listener) {
-        if (downloadService == null) {
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.connectTimeout(connectTimeout, TimeUnit.SECONDS);
-            builder.readTimeout(readTimeout, TimeUnit.SECONDS);
-            builder.writeTimeout(writeTimeout, TimeUnit.SECONDS);
-            builder.retryOnConnectionFailure(false);//出现错误时会重新发送请求
-            if (listener != null)
-                builder.addInterceptor(new DownloadInterceptor(listener));//下载拦截器（显示进度）
-            Retrofit retrofit = new Retrofit.Builder()
-                    .client(builder.build())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .baseUrl(Constant.downloadHost)
-                    .build();
-            downloadService = retrofit.create(ApiService.class);
-        }
-        return downloadService;
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.connectTimeout(connectTimeout, TimeUnit.SECONDS);
+        //builder.readTimeout(readTimeout, TimeUnit.SECONDS);
+        //builder.writeTimeout(writeTimeout, TimeUnit.SECONDS);
+        if (listener != null)
+            builder.addInterceptor(new DownloadInterceptor(listener));//下载拦截器（显示进度）
+        Retrofit retrofit = new Retrofit.Builder()
+                .client(builder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .baseUrl(Constant.BASE_API)//使用哪个域名都可以
+                .build();
+        return retrofit.create(ApiService.class);
+    }
+
+
+    /*APP中代码
+    implementation "com.github.bumptech.glide:okhttp3-integration:4.12.0"
+    Glide.get(this).getRegistry().replace(GlideUrl .class, InputStream .class,
+        new OkHttpUrlLoader.Factory(RetrofitClient.getInstance().getGlideOkHttpClient()));*/
+
+    /**
+     * Glide忽略证书替换OkHttp
+     */
+    public OkHttpClient getGlideOkHttpClient() {
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.connectTimeout(connectTimeout, TimeUnit.SECONDS);
+        builder.readTimeout(readTimeout, TimeUnit.SECONDS);
+        builder.writeTimeout(writeTimeout, TimeUnit.SECONDS);
+        builder.protocols(Collections.singletonList(Protocol.HTTP_1_1));//不使用http/2
+        builder.sslSocketFactory(SSLSocketClient.getSSLSocketFactory());//忽略证书
+        builder.hostnameVerifier(SSLSocketClient.getHostnameVerifier());//忽略证书
+        return builder.build();
     }
 }

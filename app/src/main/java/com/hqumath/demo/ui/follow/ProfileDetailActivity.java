@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
-import com.hqumath.demo.base.BaseActivity;
+import com.hqumath.demo.base.BaseActivityOld;
 import com.hqumath.demo.databinding.ActivityProfileDetailBinding;
 import com.hqumath.demo.utils.CommonUtil;
 
@@ -27,7 +27,7 @@ import com.hqumath.demo.utils.CommonUtil;
  * 版权声明:
  * ****************************************************************
  */
-public class ProfileDetailActivity extends BaseActivity {
+public class ProfileDetailActivity extends BaseActivityOld {
 
     private ActivityProfileDetailBinding binding;
     private ProfileDetailViewModel viewModel;

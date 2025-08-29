@@ -9,7 +9,7 @@ import android.view.inputmethod.EditorInfo;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.hqumath.demo.R;
-import com.hqumath.demo.base.BaseActivity;
+import com.hqumath.demo.base.BaseActivityOld;
 import com.hqumath.demo.databinding.ActivityLoginBinding;
 import com.hqumath.demo.ui.main.MainActivity;
 import com.hqumath.demo.utils.CommonUtil;
@@ -24,7 +24,7 @@ import com.hqumath.demo.utils.CommonUtil;
  * 版权声明:
  * ****************************************************************
  */
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivityOld {
 
     private ActivityLoginBinding binding;
     private LoginViewModel viewModel;
