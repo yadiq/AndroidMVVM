@@ -33,5 +33,5 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserInfoDao userInfoDao();
 
-    //注意，onDestroy时关闭数据库 close();
+    //注意，一般不需要关闭数据库，随进程销毁自动回收。
 }

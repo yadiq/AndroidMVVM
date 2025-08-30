@@ -37,8 +37,6 @@ class FollowersViewModel(application: Application) : AndroidViewModel(applicatio
         super.onCleared()
         mModel?.dispose()
         mModel = null
-        AppDatabase.getInstance().close() //关闭数据库
-        LogUtil.d("数据库关闭")
     }
 
     /**
