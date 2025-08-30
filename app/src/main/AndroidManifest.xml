@@ -8,6 +8,7 @@
     <!--相机-->
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <!--权限获取库-->
@@ -43,18 +44,18 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|navigation|keyboard|keyboardHidden|touchscreen|fontScale|locale"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.main.MainActivity"
             android:exported="true"
-            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|navigation|keyboard|keyboardHidden|touchscreen|fontScale|locale"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|navigation|keyboard|keyboardHidden|touchscreen|fontScale|locale"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.repos.ReposDetailActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|navigation|keyboard|keyboardHidden|touchscreen|fontScale|locale"

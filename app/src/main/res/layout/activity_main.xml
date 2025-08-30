@@ -6,7 +6,7 @@
     android:fitsSystemWindows="false"
     android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -17,8 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        app:itemIconTint="@drawable/bottom_navigation_item_selector"
-        app:itemTextColor="@drawable/bottom_navigation_item_selector"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/main_bottom_navigation" />
 </LinearLayout>

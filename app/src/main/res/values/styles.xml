@@ -9,6 +9,7 @@
 
         <item name="textAllCaps">false</item><!--Button字母非大写-->
         <item name="android:windowAnimationStyle">@style/TranAnimation</item><!--切换动画-->
+        <item name="icon_color">@color/light_teal_icon_color</item><!--自定义图标颜色-->
     </style>
 
     <!--弹窗主题-->

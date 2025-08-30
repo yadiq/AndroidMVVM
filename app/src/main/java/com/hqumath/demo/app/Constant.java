@@ -19,12 +19,12 @@ public class Constant {
     public static String downloadHost = "http://cps.yingyonghui.com/"; //下载线路
 
     //请求通用参数
-    public static HashMap<String, String> getBaseMap() {
-        String token = SPUtil.getInstance().getString(TOKEN);
-        HashMap<String, String> map = new HashMap<>();
-        map.put("token", token);
-        return map;
-    }
+//    public static HashMap<String, String> getBaseMap() {
+//        String token = SPUtil.getInstance().getString(TOKEN);
+//        HashMap<String, String> map = new HashMap<>();
+//        map.put("token", token);
+//        return map;
+//    }
 
     //SP Key
     public static final String USER_NAME = "USER_NAME";//用户名

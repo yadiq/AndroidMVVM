@@ -6,10 +6,12 @@ import android.text.TextUtils
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.hqumath.demo.BuildConfig
+import com.hqumath.demo.app.DataStoreKey
 import com.hqumath.demo.base.BaseActivity
 import com.hqumath.demo.databinding.ActivityLoginBinding
 import com.hqumath.demo.ui.main.MainActivity
 import com.hqumath.demo.utils.CommonUtil
+import com.hqumath.demo.utils.DataStoreUtil
 
 class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -54,14 +56,14 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun isLogin() {
-//        val token = DataStoreUtil.getData(DataStoreKey.TOKEN, "")
-//        if (!TextUtils.isEmpty(token)) {
-//            startActivity(Intent(mContext, MainActivity::class.java))
-//            finish()
-//            return
-//        }
-//        val userName = DataStoreUtil.getData(DataStoreKey.USER_NAME, "")
-//        viewModel.userName.postValue(userName)
+        val token = DataStoreUtil.getData(DataStoreKey.TOKEN, "")
+        if (!TextUtils.isEmpty(token)) {
+            startActivity(Intent(mContext, MainActivity::class.java))
+            finish()
+            return
+        }
+        val userName = DataStoreUtil.getData(DataStoreKey.USER_NAME, "")
+        viewModel.userName.postValue(userName)
 
         //缺省的账号密码
         if (BuildConfig.DEBUG) {
