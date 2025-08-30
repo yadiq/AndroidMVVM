@@ -14,13 +14,20 @@
     <!--主题背景色-->
     <color name="windowBackground">#F5F5F5</color>
 
-
-    <color name="colorTextAssistant">#888888</color>
-    <color name="bottom_navigation_normal">#ADADAD</color>
+    <!--列表item侧滑菜单-->
+    <color name="swipe_menu_green">#07C160</color>
+    <color name="swipe_menu_red">#E8616F</color>
+    <color name="swipe_menu_yellow">#FFA60C</color>
+    <color name="swipe_menu_gray">#BABBC0</color>
+    <!--列表选中-->
+    <color name="list_item_select">#A4FCF9</color>
+    <color name="list_item_unselect">#FFFFFF</color>
 
     <color name="black">#000000</color>
     <color name="gray">#ADADAD</color>
     <color name="gray1">#666666</color>
     <color name="white">#ffffff</color>
     <color name="green">#6EB502</color>
+    <color name="red">#F32D2D</color>
+
 </resources>

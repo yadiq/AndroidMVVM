@@ -7,7 +7,7 @@
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:orientation="horizontal"
-    app:cardUseCompatPadding="true">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,14 +1,20 @@
 package com.hqumath.demo.ui.follow
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.hqumath.demo.R
 import com.hqumath.demo.adapter.MyRecyclerAdapters
 import com.hqumath.demo.base.BaseFragment
 import com.hqumath.demo.bean.UserInfoEntity
 import com.hqumath.demo.databinding.FragmentFollowersBinding
+import com.hqumath.demo.utils.CommonUtil
+import com.yanzhenjie.recyclerview.SwipeMenu
+import com.yanzhenjie.recyclerview.SwipeMenuBridge
+import com.yanzhenjie.recyclerview.SwipeMenuItem
 
 /**
  * 人员列表。
@@ -34,30 +40,24 @@ class FollowersFragment : BaseFragment() {
         binding.refreshLayout.setOnRefreshListener { viewModel.getFollowers(true) }
         binding.refreshLayout.setOnLoadMoreListener { viewModel.getFollowers(false) }
 
-//        binding.recyclerView.setSwipeMenuCreator { leftMenu: SwipeMenu, rightMenu: SwipeMenu, position: Int ->
-//            val deleteItem: SwipeMenuItem =
-//                SwipeMenuItem(mContext).setBackground(R.color.swipe_menu_red)
-//                    .setText("删除")
-//                    .setTextColor(Color.WHITE)
-//                    .setWidth(CommonUtil.dp2px(mContext, 70f))
-//                    .setHeight(CommonUtil.dp2px(mContext, 108f))
-//            rightMenu.addMenuItem(deleteItem)
-//        }
-//        binding.recyclerView.setOnItemMenuClickListener { menuBridge: SwipeMenuBridge, position: Int ->
-//            menuBridge.closeMenu()
-//            if (viewModel.list.size <= position)
-//                return@setOnItemMenuClickListener
-//            val data = viewModel.list[position]
-//            val dialog = CommonDialog(
-//                context = mContext,
-//                title = "提示",
-//                message = "是否删除 ${data.userName}",
-//                positiveAction = {
-//                    viewModel.deletePerson(data.id)
-//                }
-//            )
-//            dialog.show()
-//        }
+        binding.recyclerView.setSwipeMenuCreator { leftMenu: SwipeMenu, rightMenu: SwipeMenu, position: Int ->
+            val deleteItem: SwipeMenuItem =
+                SwipeMenuItem(mContext).setBackground(R.color.swipe_menu_green)
+                    .setText("详情")
+                    .setTextColor(Color.WHITE)
+                    .setWidth(CommonUtil.dp2px(mContext, 70f))
+                    .setHeight(CommonUtil.dp2px(mContext, 55f))
+            rightMenu.addMenuItem(deleteItem)
+        }
+        binding.recyclerView.setOnItemMenuClickListener { menuBridge: SwipeMenuBridge, position: Int ->
+            menuBridge.closeMenu()
+
+            val list = viewModel.daoList.value
+            if (list == null || list.size <= position)
+                return@setOnItemMenuClickListener
+            val data = list[position]
+            mContext.startActivity(ProfileDetailActivity.getStartIntent(mContext, data.login))
+        }
     }
 
     override fun initData() {
@@ -65,8 +65,8 @@ class FollowersFragment : BaseFragment() {
 
         recyclerAdapter = MyRecyclerAdapters.FollowRecyclerAdapter(
             mContext,
-            ArrayList()
-        ) //viewModel.daoList.value
+            ArrayList() //viewModel.daoList.value
+        )
         recyclerAdapter?.setOnItemClickListener { _: View?, position: Int ->
             val list = viewModel.daoList.value
             if (list == null || list.size <= position)

@@ -92,6 +92,12 @@ public class CommonUtil {
                 context.getResources().getDisplayMetrics());
     }
 
+    //部分机型需要传入activity才能适配
+    public static int dp2px(Context context, float dpValue) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue,
+                context.getResources().getDisplayMetrics());
+    }
+
     public static void logCurThread(String tag) {
         LogUtil.d("当前线程", tag + (Looper.myLooper() == Looper.getMainLooper() ? "主线程" : "工作线程"));
     }
