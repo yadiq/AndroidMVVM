@@ -127,7 +127,7 @@
 
                 <include
                     android:id="@+id/emptyLayout"
-                    layout="@layout/recycler_layout_empty_databinding"
+                    layout="@layout/recycler_layout_empty"
                     android:visibility="gone" />
             </FrameLayout>
 

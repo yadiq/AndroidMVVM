@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.hqumath.demo.R
 import com.hqumath.demo.adapter.MyRecyclerAdapters
+import com.hqumath.demo.adapter.VerticalSpaceItemDecoration
 import com.hqumath.demo.base.BaseFragment
 import com.hqumath.demo.bean.UserInfoEntity
 import com.hqumath.demo.databinding.FragmentFollowersBinding
@@ -74,6 +75,7 @@ class FollowersFragment : BaseFragment() {
             val data = list[position]
             mContext.startActivity(ProfileDetailActivity.getStartIntent(mContext, data.login))
         }
+        binding.recyclerView.addItemDecoration(VerticalSpaceItemDecoration(CommonUtil.dp2px(mContext, 4f)))
         binding.recyclerView.adapter = recyclerAdapter
     }
 

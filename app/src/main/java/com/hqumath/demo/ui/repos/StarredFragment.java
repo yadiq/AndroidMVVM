@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.hqumath.demo.adapter.MyRecyclerAdapters;
+import com.hqumath.demo.adapter.VerticalSpaceItemDecoration;
 import com.hqumath.demo.base.BaseFragmentOld;
 import com.hqumath.demo.bean.ReposEntity;
 import com.hqumath.demo.databinding.FragmentSwipeListBinding;
@@ -51,6 +52,7 @@ public class StarredFragment extends BaseFragmentOld {
             ReposEntity data = viewModel.starredData.get(position);
             startActivity(ReposDetailActivity.getStartIntent(mContext, data.getName(), data.getOwner().getLogin()));
         });
+        binding.recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(CommonUtil.dp2px(mContext, 4f)));
         binding.recyclerView.setAdapter(recyclerAdapter);
     }
 
