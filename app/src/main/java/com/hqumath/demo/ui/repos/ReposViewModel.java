@@ -2,12 +2,12 @@ package com.hqumath.demo.ui.repos;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.hqumath.demo.app.Constant;
+import com.hqumath.demo.app.DataStoreKey;
 import com.hqumath.demo.base.BaseViewModel;
 import com.hqumath.demo.bean.ReposEntity;
 import com.hqumath.demo.net.HttpListener;
 import com.hqumath.demo.repository.MyModelOld;
-import com.hqumath.demo.utils.SPUtil;
+import com.hqumath.demo.utils.DataStoreUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +53,7 @@ public class ReposViewModel extends BaseViewModel {
         if (isRefresh) {
             myReposPageIndex = 1;
         }
-        String userName = SPUtil.getInstance().getString(Constant.USER_NAME);
+        String userName = DataStoreUtil.INSTANCE.getData(DataStoreKey.USER_NAME, "");
         ((MyModelOld) mModel).getMyRepos(userName, pageSize, myReposPageIndex, new HttpListener() {
             @Override
             public void onSuccess(Object object) {
@@ -86,7 +86,7 @@ public class ReposViewModel extends BaseViewModel {
         if (isRefresh) {
             starredPageIndex = 1;
         }
-        String userName = SPUtil.getInstance().getString(Constant.USER_NAME);
+        String userName = DataStoreUtil.INSTANCE.getData(DataStoreKey.USER_NAME, "");
         ((MyModelOld) mModel).getStarred(userName, pageSize, starredPageIndex, new HttpListener() {
             @Override
             public void onSuccess(Object object) {

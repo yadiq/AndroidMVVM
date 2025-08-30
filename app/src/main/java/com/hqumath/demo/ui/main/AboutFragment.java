@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hqumath.demo.base.BaseFragment;
+import com.hqumath.demo.base.BaseFragmentOld;
 import com.hqumath.demo.databinding.FragmentAboutBinding;
 import com.hqumath.demo.ui.follow.ProfileDetailActivity;
 import com.hqumath.demo.ui.repos.ReposDetailActivity;
@@ -20,7 +20,7 @@ import com.hqumath.demo.utils.CommonUtil;
  * 注意事项:
  * ****************************************************************
  */
-public class AboutFragment extends BaseFragment {
+public class AboutFragment extends BaseFragmentOld {
 
     private FragmentAboutBinding binding;
 

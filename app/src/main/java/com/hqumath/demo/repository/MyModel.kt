@@ -1,11 +1,9 @@
 package com.hqumath.demo.repository
 
-import com.hqumath.demo.app.Constant
 import com.hqumath.demo.app.DataStoreKey
 import com.hqumath.demo.base.BaseModel
 import com.hqumath.demo.net.RetrofitClient
 import com.hqumath.demo.utils.DataStoreUtil
-import com.hqumath.demo.utils.SPUtil
 
 /**
  * ****************************************************************
@@ -52,9 +50,24 @@ class MyModel : BaseModel() {
             RetrofitClient.getInstance().apiService.getUserInfo(userName),
             { response ->
                 //数据校验、处理
-                SPUtil.getInstance().put(Constant.USER_NAME, userName) //旧的
                 DataStoreUtil.putData(DataStoreKey.USER_NAME, userName)
                 DataStoreUtil.putData(DataStoreKey.TOKEN, "token")
+                onSuccess(response)
+            },
+            onError
+        )
+    }
+
+    fun getFollowers(
+        userName: String?,
+        query: Map<String, String>,
+        onSuccess: (response: Any?) -> Unit,
+        onError: (errorMsg: String, code: String) -> Unit
+    ) {
+        sendRequest(
+            RetrofitClient.getInstance().apiService.getFollowers(userName, query),
+            { response ->
+                //数据校验、处理
                 onSuccess(response)
             },
             onError

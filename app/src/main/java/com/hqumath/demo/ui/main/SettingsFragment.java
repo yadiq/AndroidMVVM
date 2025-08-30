@@ -8,19 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hqumath.demo.app.ActivityManager;
-import com.hqumath.demo.app.Constant;
 import com.hqumath.demo.app.DataStoreKey;
-import com.hqumath.demo.base.BaseFragment;
+import com.hqumath.demo.base.BaseFragmentOld;
 import com.hqumath.demo.databinding.FragmentSettingsBinding;
 import com.hqumath.demo.ui.fileupdown.FileUpDownActivity;
 import com.hqumath.demo.ui.login.LoginActivity;
 import com.hqumath.demo.utils.CommonUtil;
 import com.hqumath.demo.utils.DataStoreUtil;
-import com.hqumath.demo.utils.SPUtil;
 
 import java.util.Random;
 
-public class SettingsFragment extends BaseFragment {
+public class SettingsFragment extends BaseFragmentOld {
 
     private FragmentSettingsBinding binding;
 
@@ -66,8 +64,6 @@ public class SettingsFragment extends BaseFragment {
             //跳转登录界面
             ActivityManager.INSTANCE.finishAllActivities();
             startActivity(new Intent(mContext, LoginActivity.class));
-
-            mContext.finish(); //旧代码
         });
     }
 

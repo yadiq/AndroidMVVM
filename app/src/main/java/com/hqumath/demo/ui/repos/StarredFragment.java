@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.hqumath.demo.adapter.MyRecyclerAdapters;
-import com.hqumath.demo.base.BaseFragment;
+import com.hqumath.demo.base.BaseFragmentOld;
 import com.hqumath.demo.bean.ReposEntity;
 import com.hqumath.demo.databinding.FragmentSwipeListBinding;
 import com.hqumath.demo.utils.CommonUtil;
@@ -23,7 +23,7 @@ import com.hqumath.demo.utils.CommonUtil;
  * 版权声明:
  * ****************************************************************
  */
-public class StarredFragment extends BaseFragment {
+public class StarredFragment extends BaseFragmentOld {
 
     private FragmentSwipeListBinding binding;
     private ReposViewModel viewModel;

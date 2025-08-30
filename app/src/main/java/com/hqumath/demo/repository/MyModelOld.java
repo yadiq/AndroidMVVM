@@ -1,12 +1,10 @@
 package com.hqumath.demo.repository;
 
-import com.hqumath.demo.app.Constant;
 import com.hqumath.demo.base.BaseModelOld;
 import com.hqumath.demo.net.CreateRequestBodyUtil;
 import com.hqumath.demo.net.HttpListener;
 import com.hqumath.demo.net.RetrofitClient;
 import com.hqumath.demo.net.download.DownloadListener;
-import com.hqumath.demo.utils.SPUtil;
 
 import java.io.File;
 
@@ -25,39 +23,9 @@ import okhttp3.MultipartBody;
  * ****************************************************************
  */
 public class MyModelOld extends BaseModelOld {
-    //模拟登陆接口
-//    public void login(String userName, String passWord, HttpListener listener) {
-//        sendRequest(RetrofitClient.getInstance().getApiService().getUserInfo(userName), new HttpListener() {
-//            @Override
-//            public void onSuccess(Object object) {
-//                //数据校验、处理
-//                SPUtil.getInstance().put(Constant.USER_NAME, userName);
-//                listener.onSuccess(object);
-//            }
-//
-//            @Override
-//            public void onError(String errorMsg, String code) {
-//                listener.onError(errorMsg, code);
-//            }
-//        });
-//    }
 
     public void getUserInfo(String userName, HttpListener listener) {
         sendRequest(RetrofitClient.getInstance().getApiService().getUserInfo(userName), new HttpListener() {
-            @Override
-            public void onSuccess(Object object) {
-                listener.onSuccess(object);
-            }
-
-            @Override
-            public void onError(String errorMsg, String code) {
-                listener.onError(errorMsg, code);
-            }
-        });
-    }
-
-    public void getFollowers(String userName, int pageSize, long pageIndex, HttpListener listener) {
-        sendRequest(RetrofitClient.getInstance().getApiService().getFollowers(userName, pageSize, pageIndex), new HttpListener() {
             @Override
             public void onSuccess(Object object) {
                 listener.onSuccess(object);

@@ -2,16 +2,12 @@ package com.hqumath.demo.ui.main
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import androidx.viewpager2.widget.ViewPager2
 import com.hqumath.demo.adapter.MyFragmentStateAdapter
 import com.hqumath.demo.base.BaseActivity
 import com.hqumath.demo.databinding.ActivityMainBinding
 import com.hqumath.demo.ui.follow.FollowersFragment
 import com.hqumath.demo.ui.repos.ReposFragment
-import com.hqumath.demo.utils.DataStoreUtil
 
 /**
  * ****************************************************************
@@ -40,12 +36,12 @@ class MainActivity : BaseActivity() {
         binding.viewPager.adapter = MyFragmentStateAdapter(mContext, fragmentList)
         binding.viewPager.isUserInputEnabled = false //禁止滑动
         //binding.viewPager.offscreenPageLimit = 2 //缓存当前界面每一侧的界面数
-        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        /*binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 binding.navigation.menu[position].setChecked(true)
             }
-        })
+        })*/
         binding.navigation.setOnItemSelectedListener { item ->
             binding.viewPager.currentItem = item.order
             true

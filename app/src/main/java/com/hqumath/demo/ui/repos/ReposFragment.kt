@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hqumath.demo.adapter.MyFragmentStateAdapter
 import com.hqumath.demo.base.BaseActivity
-import com.hqumath.demo.base.BaseFragment
+import com.hqumath.demo.base.BaseFragmentOld
 import com.hqumath.demo.databinding.FragmentReposBinding
 
 /**
@@ -21,7 +21,7 @@ import com.hqumath.demo.databinding.FragmentReposBinding
  * 版权声明:
  * ****************************************************************
  */
-class ReposFragment : BaseFragment() {
+class ReposFragment : BaseFragmentOld() {
 
     private lateinit var binding: FragmentReposBinding
 

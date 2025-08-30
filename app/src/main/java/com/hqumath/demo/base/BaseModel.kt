@@ -29,7 +29,7 @@ open class BaseModel {
         onError: (errorMsg: String, code: String) -> Unit
     ) {
         observable.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            //.observeOn(AndroidSchedulers.mainThread()) 在工作线程处理
             .subscribe(object : Observer<Any> {
                 override fun onSubscribe(d: Disposable) {
                     compositeDisposable?.add(d)

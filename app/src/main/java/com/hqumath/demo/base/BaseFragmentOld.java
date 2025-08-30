@@ -21,7 +21,7 @@ import androidx.fragment.app.Fragment;
  * 版权声明:
  * ****************************************************************
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragmentOld extends Fragment {
     protected Activity mContext;
 
     @Override

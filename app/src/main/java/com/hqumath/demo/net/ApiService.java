@@ -7,6 +7,7 @@ import com.hqumath.demo.bean.ReposEntity;
 import com.hqumath.demo.bean.UserInfoEntity;
 
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
@@ -17,6 +18,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 import retrofit2.http.Streaming;
 import retrofit2.http.Url;
 
@@ -54,7 +56,7 @@ public interface ApiService {
 
     //获取被追随
     @GET("users/{userName}/followers")
-    Observable<List<UserInfoEntity>> getFollowers(@Path("userName") String userName, @Query("per_page") int per_page, @Query("page") long page);
+    Observable<List<UserInfoEntity>> getFollowers(@Path("userName") String userName, @QueryMap Map<String, String> query);
 
     //获取仓库信息
     @GET("repos/{userName}/{reposName}")
