@@ -58,6 +58,7 @@ class MyModel : BaseModel() {
         )
     }
 
+    /////////////////主界面////////////////
     fun getFollowers(
         userName: String?,
         query: Map<String, String>,
@@ -76,16 +77,30 @@ class MyModel : BaseModel() {
 
     fun getMyRepos(
         userName: String,
-        pageSize: Int,
-        pageIndex: Long,
+        query: Map<String, String>,
         onSuccess: (response: Any) -> Unit,
         onError: (errorMsg: String, code: String) -> Unit
     ) {
         sendRequest(
             RetrofitClient.getInstance().apiService.getMyRepos(
                 userName,
-                pageSize,
-                pageIndex
+                query
+            ),
+            onSuccess,
+            onError
+        )
+    }
+
+    fun getStarred(
+        userName: String,
+        query: Map<String, String>,
+        onSuccess: (response: Any) -> Unit,
+        onError: (errorMsg: String, code: String) -> Unit
+    ) {
+        sendRequest(
+            RetrofitClient.getInstance().apiService.getStarred(
+                userName,
+                query
             ),
             onSuccess,
             onError

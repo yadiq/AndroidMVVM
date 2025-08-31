@@ -103,8 +103,6 @@ dependencies {
     implementation("io.github.scwang90:refresh-header-classics:3.0.0-alpha") //经典刷新头
     //侧滑菜单
     implementation("com.yanzhenjie.recyclerview:x:1.3.2")
-    //日期控件
-    implementation("com.contrarywind:Android-PickerView:4.1.9")
     //picture
     implementation("com.github.bumptech.glide:glide:4.12.0")
 }
