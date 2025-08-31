@@ -8,6 +8,7 @@ import com.hqumath.demo.base.BaseActivity
 import com.hqumath.demo.databinding.ActivityMainBinding
 import com.hqumath.demo.ui.follow.FollowersFragment
 import com.hqumath.demo.ui.repos.ReposFragment
+import com.hqumath.demo.ui.tools.ToolsFragment
 
 /**
  * ****************************************************************
@@ -30,7 +31,7 @@ class MainActivity : BaseActivity() {
         val fragmentList: MutableList<Fragment> = ArrayList()
         fragmentList.add(ReposFragment())
         fragmentList.add(FollowersFragment())
-        fragmentList.add(SettingsFragment())
+        fragmentList.add(ToolsFragment())
         fragmentList.add(MineFragment())
 
         binding.viewPager.adapter = MyFragmentStateAdapter(mContext, fragmentList)
