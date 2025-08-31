@@ -18,7 +18,7 @@ import com.yanzhenjie.recyclerview.SwipeMenuBridge
 import com.yanzhenjie.recyclerview.SwipeMenuItem
 
 /**
- * 人员列表。
+ * 人员列表界面
  * 使用数据库缓存数据
  */
 class FollowersFragment : BaseFragment() {

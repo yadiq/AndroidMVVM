@@ -5,25 +5,25 @@
             android:id="@+id/navigation_0"
             android:icon="@drawable/ic_menu_repo"
             android:orderInCategory="0"
-            android:title="@string/repos" />
+            android:title="Repos" />
 
     <item
             android:id="@+id/navigation_1"
             android:icon="@drawable/ic_menu_trace"
             android:orderInCategory="1"
-            android:title="@string/follow" />
+            android:title="Followers" />
 
     <item
             android:id="@+id/navigation_2"
-            android:icon="@drawable/ic_menu_settings"
+            android:icon="@drawable/ic_menu_about"
             android:orderInCategory="2"
-            android:title="@string/settings" />
+            android:title="Tools" />
 
     <item
-            android:id="@+id/navigation_3"
-            android:icon="@drawable/ic_menu_about"
-            android:orderInCategory="3"
-            android:title="@string/about" />
+        android:id="@+id/navigation_3"
+        android:icon="@drawable/ic_menu_person"
+        android:orderInCategory="3"
+        android:title="Mine" />
 
 </menu>
 

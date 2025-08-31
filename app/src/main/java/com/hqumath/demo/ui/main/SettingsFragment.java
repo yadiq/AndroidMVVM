@@ -55,16 +55,6 @@ public class SettingsFragment extends BaseFragmentOld {
 //            alterDialogUtils.setCancelable(false);
 //            alterDialogUtils.show();
         });
-        binding.vLogout.setOnClickListener(v -> {
-            CommonUtil.toast("已退出登录");
-            //保留账号，清空全部数据
-            String username = DataStoreUtil.INSTANCE.getData(DataStoreKey.USER_NAME, "");
-            DataStoreUtil.INSTANCE.clearAllData();
-            DataStoreUtil.INSTANCE.putData(DataStoreKey.USER_NAME, username);
-            //跳转登录界面
-            ActivityManager.INSTANCE.finishAllActivities();
-            startActivity(new Intent(mContext, LoginActivity.class));
-        });
     }
 
     @Override

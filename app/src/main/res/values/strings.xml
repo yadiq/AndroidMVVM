@@ -1,18 +1,6 @@
 <resources>
     <string name="app_name">GithubDemo</string>
 
-    <!--登录界面-->
-    <string name="user_name">用户名</string>
-    <string name="password">密码(不校验)</string>
-    <string name="login">登录</string>
-    <string name="user_name_warning">用户名不正确!</string>
-    <string name="password_warning">密码不正确!</string>
-
-    <!--navigation-->
-    <string name="repos">Repos</string>
-    <string name="follow">Follow</string>
-    <string name="settings">Settings</string>
-    <string name="about">About</string>
 
     <!--权限获取-->
     <string name="permission_title">提示</string>

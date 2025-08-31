@@ -31,7 +31,7 @@ class MainActivity : BaseActivity() {
         fragmentList.add(ReposFragment())
         fragmentList.add(FollowersFragment())
         fragmentList.add(SettingsFragment())
-        fragmentList.add(AboutFragment())
+        fragmentList.add(MineFragment())
 
         binding.viewPager.adapter = MyFragmentStateAdapter(mContext, fragmentList)
         binding.viewPager.isUserInputEnabled = false //禁止滑动
