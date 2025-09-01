@@ -11,6 +11,7 @@ import com.hqumath.demo.databinding.FragmentToolsBinding
 import com.hqumath.demo.dialog.CommonDialog
 import com.hqumath.demo.dialog.DownloadDialog
 import com.hqumath.demo.ui.fileupdown.FileUpDownActivity
+import com.hqumath.demo.utils.ExcelUtils
 import com.tgdz.belt.ui.mine.ToolsViewModel
 
 /**
@@ -36,10 +37,14 @@ class ToolsFragment : BaseFragment() {
     }
 
     override fun initListener() {
-        binding.fileUpDown.setOnClickListener {
+        binding.tvFileUpDown.setOnClickListener {
             mContext.startActivity(Intent(mContext, FileUpDownActivity::class.java))
         }
-        binding.vCheckUpdate.setOnClickListener {
+        binding.tvExcelReadWrite.setOnClickListener {
+
+        }
+
+        binding.tvCheckUpdate.setOnClickListener {
             val dialog = CommonDialog(
                 context = mContext,
                 title = "新版本V2.0",
