@@ -69,6 +69,13 @@
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|navigation|keyboard|keyboardHidden|touchscreen|fontScale|locale"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".zxing.ZxingCaptureActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|navigation|keyboard|keyboardHidden|touchscreen|fontScale|locale"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+
         <!--使用content://Uri格式的URI替代file://Uri-->
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:text="Tools"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16dp" />
 
     </LinearLayout>
 
@@ -35,22 +35,12 @@
             android:padding="10dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="File"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvFileUpDown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="File upload, download"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -59,14 +49,14 @@
                 android:background="@color/windowBackground" />
 
             <TextView
-                android:id="@+id/tvExcelReadWrite"
-                android:layout_width="wrap_content"
+                android:id="@+id/tvFileUpDown"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Excel read, write"
+                android:text="File upload, download"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14dp" />
 
         </LinearLayout>
 
@@ -87,22 +77,44 @@
             android:padding="10dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Other"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:textStyle="bold" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/windowBackground" />
+
             <TextView
                 android:id="@+id/tvCheckUpdate"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:text="Check Update"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/windowBackground" />
+
+            <TextView
+                android:id="@+id/tvScanCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Scan Code"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
 
         </LinearLayout>
 

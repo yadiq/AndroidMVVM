@@ -1,18 +1,24 @@
 package com.hqumath.demo.ui.tools
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.hqumath.demo.base.BaseFragment
 import com.hqumath.demo.databinding.FragmentToolsBinding
 import com.hqumath.demo.dialog.CommonDialog
 import com.hqumath.demo.dialog.DownloadDialog
 import com.hqumath.demo.ui.fileupdown.FileUpDownActivity
-import com.hqumath.demo.utils.ExcelUtils
+import com.hqumath.demo.utils.PermissionUtil
+import com.hqumath.demo.zxing.ZxingCaptureActivity
+import com.king.camera.scan.CameraScan
 import com.tgdz.belt.ui.mine.ToolsViewModel
+import com.yanzhenjie.permission.AndPermission
+import com.yanzhenjie.permission.runtime.Permission
 
 /**
  * ****************************************************************
@@ -40,9 +46,6 @@ class ToolsFragment : BaseFragment() {
         binding.tvFileUpDown.setOnClickListener {
             mContext.startActivity(Intent(mContext, FileUpDownActivity::class.java))
         }
-        binding.tvExcelReadWrite.setOnClickListener {
-
-        }
 
         binding.tvCheckUpdate.setOnClickListener {
             val dialog = CommonDialog(
@@ -55,6 +58,18 @@ class ToolsFragment : BaseFragment() {
                 negativeAction = {}
             )
             dialog.show()
+        }
+        binding.tvScanCode.setOnClickListener {
+            AndPermission.with(mContext)
+                .runtime()
+                .permission(Permission.CAMERA)
+                .onGranted { permissions: List<String?>? ->
+                    val intent = Intent(mContext, ZxingCaptureActivity::class.java)
+                    resultLauncher.launch(intent)
+                }
+                .onDenied { permissions: List<String?>? ->  //未全部授权
+                    PermissionUtil.showSettingDialog(mContext, permissions) //自定义弹窗 去设置界面
+                }.start()
         }
     }
 
@@ -90,4 +105,18 @@ class ToolsFragment : BaseFragment() {
             downloadDialog?.setProgress(progress, viewModel.mProgressTotal)
         }
     }
+
+    //跳转扫码界面
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                if (data != null) {
+                    val result = CameraScan.parseScanResult(data)
+                    result?.let {
+                        binding.tvScanCode.text = "Scan Code= " + it
+                    }
+                }
+            }
+        }
 }
