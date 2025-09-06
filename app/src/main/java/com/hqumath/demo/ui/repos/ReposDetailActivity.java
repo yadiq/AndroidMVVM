@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.Glide;
 import com.hqumath.demo.adapter.MyRecyclerAdapters;
 import com.hqumath.demo.base.BaseActivityOld;
-import com.hqumath.demo.databinding.ActivityReposDetailBinding;
+import com.hqumath.github.databinding.ActivityReposDetailBinding;
 import com.hqumath.demo.utils.CommonUtil;
 
 /**

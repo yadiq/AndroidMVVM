@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import com.hqumath.demo.BuildConfig
+import com.hqumath.github.BuildConfig
 import com.hqumath.demo.app.DataStoreKey
 import com.hqumath.demo.base.BaseActivity
-import com.hqumath.demo.databinding.ActivityLoginBinding
+import com.hqumath.github.databinding.ActivityLoginBinding
 import com.hqumath.demo.ui.main.MainActivity
 import com.hqumath.demo.utils.CommonUtil
 import com.hqumath.demo.utils.DataStoreUtil

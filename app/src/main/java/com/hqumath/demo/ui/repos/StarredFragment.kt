@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.hqumath.demo.adapter.MyRecyclerAdapters
 import com.hqumath.demo.adapter.VerticalSpaceItemDecoration
 import com.hqumath.demo.base.BaseFragment
-import com.hqumath.demo.databinding.FragmentStarredBinding
+import com.hqumath.github.databinding.FragmentStarredBinding
 import com.hqumath.demo.utils.CommonUtil
 
 /**

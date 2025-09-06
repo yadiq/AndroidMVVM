@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.hqumath.demo.R;
+import com.hqumath.github.R;
 import com.yanzhenjie.permission.RequestExecutor;
 import com.yanzhenjie.permission.runtime.Permission;
 

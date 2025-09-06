@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.hqumath.demo.app.ActivityManager
 import com.hqumath.demo.app.DataStoreKey
 import com.hqumath.demo.base.BaseFragment
-import com.hqumath.demo.databinding.FragmentMineBinding
+import com.hqumath.github.databinding.FragmentMineBinding
 import com.hqumath.demo.dialog.CommonDialog
 import com.hqumath.demo.ui.follow.ProfileDetailActivity
 import com.hqumath.demo.ui.login.LoginActivity

@@ -9,7 +9,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.hqumath.demo.adapter.MyFragmentStateAdapter
 import com.hqumath.demo.base.BaseActivity
 import com.hqumath.demo.base.BaseFragmentOld
-import com.hqumath.demo.databinding.FragmentReposBinding
+import com.hqumath.github.databinding.FragmentReposBinding
 
 /**
  * ****************************************************************

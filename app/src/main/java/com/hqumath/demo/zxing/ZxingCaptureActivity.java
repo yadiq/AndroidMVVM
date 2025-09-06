@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.zxing.Result;
-import com.hqumath.demo.R;
+import com.hqumath.github.R;
 import com.king.camera.scan.AnalyzeResult;
 import com.king.camera.scan.CameraScan;
 import com.king.camera.scan.analyze.Analyzer;

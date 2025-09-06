@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.hqumath.demo.R;
+import com.hqumath.github.R;
 import com.hqumath.demo.base.BaseRecyclerAdapter;
 import com.hqumath.demo.base.BaseRecyclerViewHolder;
 import com.hqumath.demo.bean.CommitEntity;

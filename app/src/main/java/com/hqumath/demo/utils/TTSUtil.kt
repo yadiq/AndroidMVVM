@@ -15,8 +15,14 @@ object TTSUtil {
 
     // 初始化
     fun init() {
+        //监听初始化状态
         tts = TextToSpeech(CommonUtil.getContext()) { status ->
-            if (status != TextToSpeech.SUCCESS) {//监听初始化状态
+            if (status == TextToSpeech.SUCCESS) {//初始化成功, 设置语言（中文）
+                val result = tts?.setLanguage(Locale.CHINA)
+                if (TextToSpeech.LANG_MISSING_DATA == result || TextToSpeech.LANG_NOT_SUPPORTED == result) {
+                    CommonUtil.toast("TTS 不支持中文")
+                }
+            } else {//初始化失败
                 CommonUtil.toast("TTS 初始化失败")
             }
         }
@@ -31,18 +37,10 @@ object TTSUtil {
 
     //文字转语音
     fun speak(msg: String) {
-        if (tts == null)
-            return
-        //设置语言（中文）
-        val result = tts!!.setLanguage(Locale.CHINA)
-        if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-            CommonUtil.toast("TTS 不支持中文")
-            return
-        }
         //开始朗读
         // 第二个参数。QUEUE_FLUSH：中断当前语音并播放新内容；QUEUE_ADD：添加到队列后排队播放
         // 第四个参数 utteranceId 可用于在监听器中区分不同的朗读请求
-        tts!!.speak(msg, TextToSpeech.QUEUE_FLUSH, null, "utteranceId")
+        tts?.speak(msg, TextToSpeech.QUEUE_FLUSH, null, "utteranceId")
     }
 
     //获取当前引擎信息

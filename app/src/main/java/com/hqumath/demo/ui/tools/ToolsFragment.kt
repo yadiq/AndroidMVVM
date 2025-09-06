@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.hqumath.demo.base.BaseFragment
-import com.hqumath.demo.databinding.FragmentToolsBinding
+import com.hqumath.github.databinding.FragmentToolsBinding
 import com.hqumath.demo.dialog.CommonDialog
 import com.hqumath.demo.dialog.DownloadDialog
 import com.hqumath.demo.ui.fileupdown.FileUpDownActivity
@@ -73,7 +73,8 @@ class ToolsFragment : BaseFragment() {
                 }.start()
         }
         binding.tvTTS.setOnClickListener {
-            
+            TTSUtil.speak("测试TTS语音引擎")
+            TTSUtil.showEngineChangeDialog(mContext)
         }
     }
 

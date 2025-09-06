@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.hqumath.demo.adapter.MyFragmentStateAdapter
 import com.hqumath.demo.base.BaseActivity
-import com.hqumath.demo.databinding.ActivityMainBinding
+import com.hqumath.github.databinding.ActivityMainBinding
 import com.hqumath.demo.ui.follow.FollowersFragment
 import com.hqumath.demo.ui.repos.ReposFragment
 import com.hqumath.demo.ui.tools.ToolsFragment

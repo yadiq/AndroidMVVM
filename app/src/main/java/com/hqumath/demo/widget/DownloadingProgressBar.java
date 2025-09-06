@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ProgressBar;
 
-import com.hqumath.demo.R;
+import com.hqumath.github.R;
 
 /**
  * ****************************************************************

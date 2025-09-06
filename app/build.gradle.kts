@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.hqumath.demo" //影响R类生成
+    namespace = "com.hqumath.github" //影响R类生成
     compileSdk = 33
 
     defaultConfig {

@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.hqumath.demo.R
+import com.hqumath.github.R
 import com.hqumath.demo.adapter.MyRecyclerAdapters
 import com.hqumath.demo.adapter.VerticalSpaceItemDecoration
 import com.hqumath.demo.base.BaseFragment
 import com.hqumath.demo.bean.UserInfoEntity
-import com.hqumath.demo.databinding.FragmentFollowersBinding
+import com.hqumath.github.databinding.FragmentFollowersBinding
 import com.hqumath.demo.utils.CommonUtil
 import com.yanzhenjie.recyclerview.SwipeMenu
 import com.yanzhenjie.recyclerview.SwipeMenuBridge

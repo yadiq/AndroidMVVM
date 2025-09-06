@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.hqumath.demo.base.BaseActivityOld;
-import com.hqumath.demo.databinding.ActivityFileupdownBinding;
+import com.hqumath.github.databinding.ActivityFileupdownBinding;
 import com.hqumath.demo.utils.CommonUtil;
 import com.hqumath.demo.utils.FileUtil;
 import com.hqumath.demo.widget.DownloadingDialog;

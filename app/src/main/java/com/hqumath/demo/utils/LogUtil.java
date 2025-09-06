@@ -7,7 +7,7 @@ package com.hqumath.demo.utils;
 
 import android.util.Log;
 
-import com.hqumath.demo.BuildConfig;
+import com.hqumath.github.BuildConfig;
 
 /**
  * Log统一管理类

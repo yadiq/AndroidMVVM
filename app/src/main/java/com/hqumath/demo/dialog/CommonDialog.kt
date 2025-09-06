@@ -4,8 +4,8 @@ import android.app.Dialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
-import com.hqumath.demo.R
-import com.hqumath.demo.databinding.DialogCommonBinding
+import com.hqumath.github.R
+import com.hqumath.github.databinding.DialogCommonBinding
 
 /*
 用法

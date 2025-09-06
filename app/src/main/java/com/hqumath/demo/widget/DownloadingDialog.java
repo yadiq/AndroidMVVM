@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.appcompat.app.AppCompatDialog;
 
-import com.hqumath.demo.R;
+import com.hqumath.github.R;
 
 /**
  * 上传下载进度对话框
