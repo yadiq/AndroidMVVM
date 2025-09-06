@@ -14,6 +14,7 @@ import com.hqumath.demo.dialog.CommonDialog
 import com.hqumath.demo.dialog.DownloadDialog
 import com.hqumath.demo.ui.fileupdown.FileUpDownActivity
 import com.hqumath.demo.utils.PermissionUtil
+import com.hqumath.demo.utils.TTSUtil
 import com.hqumath.demo.zxing.ZxingCaptureActivity
 import com.king.camera.scan.CameraScan
 import com.tgdz.belt.ui.mine.ToolsViewModel
@@ -71,10 +72,15 @@ class ToolsFragment : BaseFragment() {
                     PermissionUtil.showSettingDialog(mContext, permissions) //自定义弹窗 去设置界面
                 }.start()
         }
+        binding.tvTTS.setOnClickListener {
+            
+        }
     }
 
     override fun initData() {
         viewModel = ViewModelProvider(this)[ToolsViewModel::class.java]
+        TTSUtil.init()
+        binding.tvTTS.text = "TTS Engine: " + TTSUtil.getEngine()
     }
 
     override fun initViewObservable() {
@@ -104,6 +110,11 @@ class ToolsFragment : BaseFragment() {
         viewModel.mProgress.observe(this) { progress ->
             downloadDialog?.setProgress(progress, viewModel.mProgressTotal)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        TTSUtil.release()
     }
 
     //跳转扫码界面

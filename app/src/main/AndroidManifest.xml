@@ -14,6 +14,13 @@
     <!--权限获取库-->
     <permission-group android:name="${applicationId}.andpermission" />
 
+    <!-- 其他权限声明 -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
