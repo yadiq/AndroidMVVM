@@ -9,13 +9,13 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.hqumath.demo.base.BaseFragment
-import com.hqumath.github.databinding.FragmentToolsBinding
 import com.hqumath.demo.dialog.CommonDialog
 import com.hqumath.demo.dialog.DownloadDialog
 import com.hqumath.demo.ui.fileupdown.FileUpDownActivity
 import com.hqumath.demo.utils.PermissionUtil
 import com.hqumath.demo.utils.TTSUtil
 import com.hqumath.demo.zxing.ZxingCaptureActivity
+import com.hqumath.github.databinding.FragmentToolsBinding
 import com.king.camera.scan.CameraScan
 import com.tgdz.belt.ui.mine.ToolsViewModel
 import com.yanzhenjie.permission.AndPermission
@@ -47,18 +47,16 @@ class ToolsFragment : BaseFragment() {
         binding.tvFileUpDown.setOnClickListener {
             mContext.startActivity(Intent(mContext, FileUpDownActivity::class.java))
         }
-
-        binding.tvCheckUpdate.setOnClickListener {
-            val dialog = CommonDialog(
-                context = mContext,
-                title = "新版本V2.0",
-                message = "适配 Android 11",
-                positiveText = "立即更新",
-                positiveAction = { viewModel.appUpdate() },
-                negativeText = "下次提醒",
-                negativeAction = {}
-            )
-            dialog.show()
+        binding.tvCameraX.setOnClickListener {
+            AndPermission.with(mContext)
+                .runtime()
+                .permission(Permission.CAMERA)
+                .onGranted { permissions: List<String?>? ->
+                    startActivity(Intent(mContext, CameraXActivity::class.java))
+                }
+                .onDenied { permissions: List<String?>? ->  //未全部授权
+                    PermissionUtil.showSettingDialog(mContext, permissions) //自定义弹窗 去设置界面
+                }.start()
         }
         binding.tvScanCode.setOnClickListener {
             AndPermission.with(mContext)
@@ -71,6 +69,19 @@ class ToolsFragment : BaseFragment() {
                 .onDenied { permissions: List<String?>? ->  //未全部授权
                     PermissionUtil.showSettingDialog(mContext, permissions) //自定义弹窗 去设置界面
                 }.start()
+        }
+
+        binding.tvCheckUpdate.setOnClickListener {
+            val dialog = CommonDialog(
+                context = mContext,
+                title = "新版本V2.0",
+                message = "适配 Android 11",
+                positiveText = "立即更新",
+                positiveAction = { viewModel.appUpdate() },
+                negativeText = "下次提醒",
+                negativeAction = {}
+            )
+            dialog.show()
         }
         binding.tvTTS.setOnClickListener {
             TTSUtil.speak("测试TTS语音引擎")

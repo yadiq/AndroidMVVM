@@ -33,7 +33,7 @@ public class DeviceUtil {
 
     /**
      * 获取wifi网卡的mac地址，6.0以上特殊处理
-     *
+     * 要求targetSdkVersion<=29, 否则获取不到mac地址
      * @return
      */
     public static String getMac() {
@@ -62,25 +62,29 @@ public class DeviceUtil {
      * @return
      */
     private static String getMacMoreThanM() {
+        String wlan0MAC = null;
+        String eth0MAC = null;
         try {
-            //获取本机器所有的网络接口
             Enumeration enumeration = NetworkInterface.getNetworkInterfaces();
-            while (enumeration.hasMoreElements()) {
+            while (enumeration.hasMoreElements()) {//本机器所有的网络接口
                 NetworkInterface networkInterface = (NetworkInterface) enumeration.nextElement();
-                // wlan0:无线网卡 eth0：以太网卡 (机顶盒厂家贴的mac是以太网卡)
-                if (!networkInterface.getName().equals("wlan0")) {
-                    continue;
-                }
+                // wlan0:无线网卡 eth0：以太网卡
+                String name = networkInterface.getName();
                 //获取硬件地址，一般是MAC
                 byte[] arrayOfByte = networkInterface.getHardwareAddress();
-                if (arrayOfByte == null || arrayOfByte.length == 0) {
-                    continue;
+                if (arrayOfByte == null || arrayOfByte.length == 0) continue;
+                if (name.equals("wlan0")) {
+                    wlan0MAC = ByteUtil.bytesToHex(arrayOfByte).toUpperCase();
+                } else if (name.equals("eth0")) {
+                    eth0MAC = ByteUtil.bytesToHex(arrayOfByte).toUpperCase();
                 }
-                return ByteUtil.byteToHex(arrayOfByte).toUpperCase();
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if (!TextUtils.isEmpty(eth0MAC)) return eth0MAC;
+        if (!TextUtils.isEmpty(wlan0MAC)) return wlan0MAC;
         return null;
     }
 

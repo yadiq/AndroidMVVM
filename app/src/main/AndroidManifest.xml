@@ -75,6 +75,11 @@
             android:name="com.hqumath.demo.ui.fileupdown.FileUpDownActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|navigation|keyboard|keyboardHidden|touchscreen|fontScale|locale"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hqumath.demo.ui.tools.CameraXActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|navigation|keyboard|keyboardHidden|touchscreen|fontScale|locale"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name="com.hqumath.demo.zxing.ZxingCaptureActivity"
