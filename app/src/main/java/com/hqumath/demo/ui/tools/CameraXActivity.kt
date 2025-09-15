@@ -1,8 +1,10 @@
 package com.hqumath.demo.ui.tools
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Size
 import android.view.View
+import androidx.camera.camera2.interop.Camera2CameraInfo
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -48,17 +50,23 @@ class CameraXActivity : BaseActivity() {
     }
 
 
+    @SuppressLint("UnsafeOptInUsageError")
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         cameraProviderFuture.addListener(Runnable { //在视图创建后成功执行
             //CameraProvider
             val cameraProvider = cameraProviderFuture.get()
             //获取所有摄像头信息
-            /*val cameraInfos = cameraProvider.availableCameraInfos
+            val cameraInfos = cameraProvider.availableCameraInfos
+            LogUtil.d("摄像头数量: ${cameraInfos.size}")
             for (cameraInfo in cameraInfos) {
-                LogUtil.d("相机 " + cameraInfo.toString())
-                val cameraSelector = cameraInfo.cameraSelector
-            }*/
+                try {
+                    val info = Camera2CameraInfo.from(cameraInfo)
+                    LogUtil.d("相机ID: ${info.cameraId}")
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
             //选择后置摄像头
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
             /*var cameraSelector : CameraSelector = CameraSelector.Builder()
