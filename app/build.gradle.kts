@@ -95,6 +95,12 @@ dependencies {
     implementation("com.github.jenly1314.AppUpdater:app-updater:1.2.0")
     //异常捕获
     implementation ("com.iqiyi.xcrash:xcrash-android-lib:3.1.0")
+    //相机
+    val camerax_version = "1.2.3"
+    implementation("androidx.camera:camera-core:${camerax_version}")
+    implementation("androidx.camera:camera-camera2:${camerax_version}")
+    implementation("androidx.camera:camera-lifecycle:${camerax_version}")
+    implementation("androidx.camera:camera-view:${camerax_version}") // 如果需要使用 CameraView
     ////////////////UI组件相关////////////////
     //二维码
     implementation("com.github.jenly1314:zxing-lite:3.0.1")

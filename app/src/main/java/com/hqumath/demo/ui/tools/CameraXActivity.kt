@@ -9,18 +9,11 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import com.hqumath.demo.base.BaseActivity
 import com.hqumath.demo.utils.CommonUtil
 import com.hqumath.demo.utils.FileUtil
 import com.hqumath.demo.utils.LogUtil
 import com.hqumath.github.databinding.ActivityCameraxBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.launch
 
 class CameraXActivity : BaseActivity() {
     private lateinit var binding: ActivityCameraxBinding
@@ -60,6 +53,12 @@ class CameraXActivity : BaseActivity() {
         cameraProviderFuture.addListener(Runnable { //在视图创建后成功执行
             //CameraProvider
             val cameraProvider = cameraProviderFuture.get()
+            //获取所有摄像头信息
+            /*val cameraInfos = cameraProvider.availableCameraInfos
+            for (cameraInfo in cameraInfos) {
+                LogUtil.d("相机 " + cameraInfo.toString())
+                val cameraSelector = cameraInfo.cameraSelector
+            }*/
             //选择后置摄像头
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
             /*var cameraSelector : CameraSelector = CameraSelector.Builder()
@@ -104,8 +103,7 @@ class CameraXActivity : BaseActivity() {
                 }
 
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    val savedUri = outputFileResults.savedUri ?: return
-                    val msg = "Photo capture succeeded: $savedUri"
+                    val msg = "Photo capture succeeded: ${outputFileResults.savedUri}"
                     LogUtil.d(msg)
                     CommonUtil.toast(msg)
                 }
