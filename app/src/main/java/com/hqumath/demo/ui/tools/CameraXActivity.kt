@@ -59,7 +59,9 @@ class CameraXActivity : BaseActivity() {
             //获取所有摄像头信息
             val cameraInfos = cameraProvider.availableCameraInfos
             LogUtil.d("摄像头数量: ${cameraInfos.size}")
+            var cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
             for (cameraInfo in cameraInfos) {
+                cameraSelector = cameraInfo.cameraSelector
                 try {
                     val info = Camera2CameraInfo.from(cameraInfo)
                     LogUtil.d("相机ID: ${info.cameraId}")
@@ -68,7 +70,7 @@ class CameraXActivity : BaseActivity() {
                 }
             }
             //选择后置摄像头
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            //val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
             /*var cameraSelector : CameraSelector = CameraSelector.Builder()
             .requireLensFacing(CameraSelector.LENS_FACING_BACK)
             .build()*/
@@ -104,14 +106,14 @@ class CameraXActivity : BaseActivity() {
             outputFileOptions,
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
-                override fun onError(error: ImageCaptureException) {
-                    val msg = "Photo capture failed: ${error.message}"
+                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+                    val msg = "拍照成功: ${file.absolutePath}"
                     LogUtil.d(msg)
                     CommonUtil.toast(msg)
                 }
 
-                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    val msg = "Photo capture succeeded: ${outputFileResults.savedUri}"
+                override fun onError(error: ImageCaptureException) {
+                    val msg = "拍照失败: ${error.message}"
                     LogUtil.d(msg)
                     CommonUtil.toast(msg)
                 }
